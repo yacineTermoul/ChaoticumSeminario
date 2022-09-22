@@ -17,6 +17,7 @@
     <script src="asset/js/anime.min.js"></script>
     <script src="asset/js/all.min.js"></script>
     <script src="asset/js/amazelogo.js"></script>
+    <script src="asset/js/qrcode.min.js"></script>
     <style>
         #logoMazePetit {
             height: 60px;
@@ -28,10 +29,10 @@
             visibility: hidden;
         }
         #aleaDiapo{
-            height: 650px;
+            height: 600px;
             width: 100%;            
         }
-        html, body {margin: 0; height: 100%; overflow: hidden}
+        html, body {margin: 0; height: 100%}
 
     </style>
 </head>
@@ -86,6 +87,7 @@
                         </div>
                     </nav>
                 </div>
+                <div id="qrcode"></div>
             </header>
             <script>
                 let mlPetit = new amazelogo({
@@ -105,7 +107,7 @@
 
 
                 d3.select('#btnNewAlea').on('click',newAlea);
-
+                const qr = document.getElementById("qrcode");
                 function newAlea(){
                     let svg = d3.select("#svgLoad"), diapo, url, conf = confs[Math.floor(Math.random()*confs.length)];
                     /*vérifie si la conf est chargée
@@ -132,7 +134,26 @@
                     */
                     showDiapo(conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length));
 
+                    
+
+                    clearUI();
+                    
+                    let qrcode = new QRCode("qrcode", {
+                        text: conf.urlSlide,
+                        width: 177,
+                        height: 177,
+                        colorDark : "#990000",
+                        colorLight : "#ffffff",
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                    
+                    
+                 
                 }
+                const clearUI = ()=>{
+                        qr.innerHTML = '';
+                    }
+
                 function showDiapo(url){
                     console.log(url);
                     d3.select('#aleaDiapo').attr('src',url);
@@ -144,15 +165,19 @@
 
             <div class="container text-center">
                 <div class="row">
-                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2">
+                        
+                    </div>
                     <div class="col-sm-8 bg-white">
                         <iframe id="aleaDiapo" frameBorder="0"></iframe>
                     </div>
                     <div class="col-sm-2"></div>
                 </div>
+                
             </div>
                 <div id="svgLoad"></div>
-            </main>            
+                
+            </main>    
 
             <footer class="mt-auto text-white-50">
                 <p style="padding-top: 6px;">Design by <a href="https://samszo.univ-paris8.fr/"
