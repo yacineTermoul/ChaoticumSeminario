@@ -134,22 +134,24 @@
                     */
                     showDiapo(conf.urlSlide+'?diapo='+Math.floor(Math.random()*conf.diapos.length));
 
-                    
-
                     clearUI();
                     
+                    generateQRCode(conf.urlSlide);
+                    
+                    
+                 
+                }
+                const generateQRCode= (diapoURL)=>{
                     let qrcode = new QRCode("qrcode", {
-                        text: conf.urlSlide,
+                        text: diapoURL,
                         width: 177,
                         height: 177,
                         colorDark : "#990000",
                         colorLight : "#ffffff",
                         correctLevel : QRCode.CorrectLevel.H
                     });
-                    
-                    
-                 
-                }
+                    }
+
                 const clearUI = ()=>{
                         qr.innerHTML = '';
                     }
