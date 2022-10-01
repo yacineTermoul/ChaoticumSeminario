@@ -1,4 +1,4 @@
 # ChaoticumSeminario
 
-## Lien page AleaConf.html
-[a link](https://yacinetermoul.github.io/ChaoticumSeminario/AleaConf.html)
+### Lien page AleaConf.html
+https://yacinetermoul.github.io/ChaoticumSeminario/AleaConf.html
