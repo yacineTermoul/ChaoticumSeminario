@@ -1,4 +1,4 @@
-## Art, marques de luxe, sports, athlétiques et autres souvenirs
+## Art, marques de luxe
 Les applications pour les NFT ont décollé principalement dans les mondes des objets de collection, de l'art, des jeux et virtuels.
 Le crypto-art et d'autres applications de divertissement tirent l'essentiel de leur valeur de la capacité à fournir une vérification numérique de leur authenticité et de leur propriété. 
 
